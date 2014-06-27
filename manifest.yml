@@ -1,6 +1,6 @@
 ---
 applications:
-- name: Sentiment Analysis
+- name: SentimentAnalysis
   memory: 64M
   instances: 1
   command: node app.js
