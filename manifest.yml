@@ -1,7 +1,7 @@
 ---
 applications:
 - name: Sentiment Analysis
-  mem: 64M
+  memory: 64M
   instances: 1
   command: node app.js
   host: sentimentanalysis-${random-word}
