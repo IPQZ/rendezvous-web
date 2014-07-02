@@ -8,7 +8,7 @@ Sample application demonstrating how to build a sentiment analysis app usind Nod
 The application takes a keyword or hashtag, connects to Twitter to get a stream of matching tweets, 
 and runs those tweets through a sentiment-analysis module to produce a sentiment score.
 
-You can play with an instance of the application running at http://simplesentimentanalysis.ng.bluemix.net/
+You can play with an instance of the application running at http://simplesentimentanalysis.mybluemix.net/
 
 You can explore the code by clicking into the SimpleSentimentAnalysis folder.
 
