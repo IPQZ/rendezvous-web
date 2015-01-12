@@ -3,7 +3,7 @@ var express = require("express");
 var sentiment = require('sentiment');
 var twitter = require('ntwitter');
 
-var DEFAULT_TOPIC = "Justin Bieber";
+var DEFAULT_TOPIC = "IBM";
 
 // defensiveness against errors parsing request bodies...
 process.on('uncaughtException', function (err) {
@@ -50,10 +50,10 @@ app.post('/sentiment', function (req, res) {
 			beginMonitoring(req.body.phrase);
 			res.send(200);			
 		} else {
-			res.status(400).send('Invalid request: send {"phrase": "bieber"}');		
+			res.status(400).send('Invalid request: send {"phrase": "ibm"}');		
 		}
 	} catch (exception) {
-		res.status(400).send('Invalid request: send {"phrase": "bieber"}');
+		res.status(400).send('Invalid request: send {"phrase": "ibm"}');
 	}
 });
 
@@ -184,7 +184,7 @@ app.get('/hello', function (req, res) {
 app.get('/watchTwitter', function (req, res) {
 	var stream;
 	var testTweetCount = 0;
-	var phrase = 'bieber';
+	var phrase = 'ibm';
 	// var phrase = 'ice cream';
 	tweeter.verifyCredentials(function (error, data) {
 		if (error) {
