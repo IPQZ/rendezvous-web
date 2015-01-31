@@ -25,6 +25,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//MySQL database singleton
+app.use(myConnection(mysql, {
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASS,
+  port: 3306,
+  database: process.env.MYSQL_DB
+}, 'single'));
+
 app.use('/', routes);
 app.use('/analyze', analyze);
 
@@ -35,14 +44,7 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-//MySQL database singleton
-app.use(myConnection(mysql, {
-  host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASS,
-  port: 3306,
-  database: process.env.DB_DATABASE
-}, 'single'));
+console.log(process.env.MYSQL_HOST);
 
 // will print stacktrace
 if (app.get('env') === 'development') {
