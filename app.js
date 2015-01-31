@@ -11,6 +11,7 @@ var mysql = require('mysql');
 var routes = require('./routes/index');
 var analyze = require('./routes/analyze');
 var hobby = require('./routes/hobby');
+var interests = require('./routes/interests');
 
 var app = express();
 
@@ -38,6 +39,7 @@ app.use(myConnection(mysql, {
 app.use('/', routes);
 app.use('/analyze', analyze);
 app.use('/hobby', hobby);
+app.use('/interests', interests);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
