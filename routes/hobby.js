@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
         name: current.name,
         rating: current.rating,
         image: current.image_url,
-        address: current.location.display_address,
+        address: current.location.display_address.join('\n'),
         isclosed: current.is_closed,
       })
     }
