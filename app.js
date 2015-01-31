@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var mysql = require('mysql');
+
 var app = express();
 
 // view engine setup
@@ -32,9 +34,15 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-// error handlers
+//MySQL database singleton
+app.use(myConnection(mysql, {
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASS,
+  port: 3306,
+  database: process.env.DB_DATABASE
+}, 'single'));
 
-// development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
