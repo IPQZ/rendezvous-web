@@ -11,8 +11,9 @@ var yelp = require('yelp').createClient({
     token_secret: 'pQt6Oisw2Jc3uo_wFb8pE1BGISY'
 })
 
+tools = {};
 
-function matchInterests(i1, i2) {
+tools.matchInterests = function(i1, i2) {
     matched = []
     for (var i = 0; i < i1.length; i++) {
         var current = i1[i]
@@ -22,7 +23,7 @@ function matchInterests(i1, i2) {
     return matched
 }
 
-function matchHobbies(l, location) {
+tools.matchHobbies = function(l, location) {
     eventList = yelp.search({
         term: l,
         location: location
@@ -45,4 +46,4 @@ function matchHobbies(l, location) {
     })
 }
 
-matchHobbies('food', 'Toronto ')
+module.exports = tools;
