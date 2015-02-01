@@ -18,10 +18,10 @@ router.get('/', function(req, res, next) {
 		ll: location[0] + "," + location[1]
 	}, function(error, data) {
 		console.log(error);
-		var info = JSON.parse('{"events":[]}')
+		var info = {}
 		for (var i in data.businesses) {
 			current = data.businesses[i]
-			info.events.push({
+			info.push({
 				name: current.name,
 				rating: current.rating,
 				image: current.image_url,
