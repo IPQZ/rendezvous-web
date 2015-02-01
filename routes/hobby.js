@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 		ll: location[0] + "," + location[1]
 	}, function(error, data) {
 		console.log(error);
-		var info = {}
+		var info = []
 		for (var i in data.businesses) {
 			current = data.businesses[i]
 			info.push({
