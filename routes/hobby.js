@@ -2,19 +2,19 @@ var express = require('express');
 var router = express.Router();
 
 var yelp = require('yelp').createClient({
-	consumer_key: 'MnDyNxnoLBYEL2DoyrB05g',
-	consumer_secret: 'oEyzbrtkF_Bvi_DJ6RSHEsa_7ak',
-	token: 'Vt-uYZvA9mOnvIXkBV8Cu44MzOnnNuau',
-	token_secret: 'pQt6Oisw2Jc3uo_wFb8pE1BGISY'
-})
+	consumer_key: process.env.YELP_KEY,
+	consumer_secret: process.env.YELP_SECRET,
+	token: process.env.YELP_TOKEN,
+	token_secret: process.env.YELP_TOKEN_SECRET
+});
 
 router.get('/', function(req, res, next) {
 
 	var term = req.query['term'];
-	var location = JSON.parse(req.query['location']); // an array like [Number, Number]
+	var location = JSON.parse(req.query['location']);
 
 	eventList = yelp.search({
-		term: l,
+		term: term,
 		ll: location[0] + "," + location[1]
 	}, function(error, data) {
 		console.log(error);
