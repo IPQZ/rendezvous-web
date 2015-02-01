@@ -11,7 +11,7 @@ var yelp = require('yelp').createClient({
 router.get('/', function(req, res, next) {
 
   var term = req.query['term'];
-  var location = req.query['location'];
+  var location = JSON.parse(req.query['location']); // an array like [Number, Number]
 
   eventList = yelp.search({
     term: term,
