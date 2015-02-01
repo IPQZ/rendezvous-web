@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
         rating: current.rating,
         image: current.image_url,
         address: current.location.display_address.join(", "),
-        isclosed: current.is_closed,
+        isclosed: current.is_closed
       })
     }
     console.log(JSON.stringify(info))
