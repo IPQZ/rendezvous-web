@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 
 	eventList = yelp.search({
 		term: l,
-		ll: "43.647866, -79.3886415"
+		ll: location[0] + "," + location[1]
 	}, function(error, data) {
 		console.log(error);
 		var info = JSON.parse('{"events":[]}')
